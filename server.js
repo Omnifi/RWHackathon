@@ -95,8 +95,7 @@ app.use(function(err, req, res, next) {
     res.render('error', {
         title: 'Error',
         message: err.message,
-        error: (app.get('env') === 'development') ? err : {},
-        layout: 'fallback'
+        error: (app.get('env') === 'development') ? err : {}
     })
 })
 
