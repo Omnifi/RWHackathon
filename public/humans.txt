@@ -1,0 +1,12 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Simon Donaldson - Developer - @sidonaldsoncode
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, Stylus
+    getUserMedia
+    Node, Mongo
