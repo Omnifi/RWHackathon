@@ -4,8 +4,6 @@ module.exports = {
 
     add: function(req, res, next) {
 
-        console.log(req.body)
-
         if (!req.body.user_id || !req.body.name || !req.body.nsfw || !req.body.trend) return next(new Error('Missing user id or product name, trend, nsfw'))
 
         const basket = new Basket({
@@ -19,7 +17,7 @@ module.exports = {
         });
 
         basket.save(function(err, basket) {
-            console.log(err, basket);
+            //console.log(err, basket);
             res.send('ok');
         })
 
