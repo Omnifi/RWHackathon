@@ -29,7 +29,7 @@ router.get('/notifications/:player_id', Notifications)
 // POST
 
 // POST /notify
-router.post('/notify', urlencodedParser, Notify)
+router.get('/notify/:user_id/:beacon_id', Notify)
 
 // POST /product/add
 router.post('/product/add', urlencodedParser, Product.add)

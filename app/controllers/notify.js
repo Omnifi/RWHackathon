@@ -3,11 +3,9 @@ var Location = require('../models/locations')
 
 module.exports = function(req, res, next) {
 
-    console.log(res.body)
+    if (!req.params.user_id || !req.params.beacon_id) return next(new Error('Missing beacon id or user id'))
 
-    if (!req.body.user_id || !req.body.beacon_id) return next(new Error('Missing beacon id or user id'))
-
-    Basket.findOne({ user_id: req.body.user_id }).exec(function(err, basket) {
+    Basket.findOne({ user_id: req.params.user_id }).exec(function(err, basket) {
 
         if (err) return next(err)
 
@@ -15,7 +13,7 @@ module.exports = function(req, res, next) {
             return (a.trend < b.trend)
         });
 
-        Location.findOne({ beacon_id: req.body.beacon_id }).exec(function(err, location) {
+        Location.findOne({ beacon_id: req.params.beacon_id }).exec(function(err, location) {
 
             if (err) return next(err);
 
