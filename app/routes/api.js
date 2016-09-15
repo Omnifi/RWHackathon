@@ -6,7 +6,12 @@ var express = require('express'),
     Product = require('../controllers/product'),
     multer = require('multer'),
     temp = multer({ storage: multer.memoryStorage() }),
+    bodyParser = require('body-parser'),
+    jsonParser = bodyParser.json(),
+    urlencodedParser = bodyParser.urlencoded({ extended: false }),
     router = express.Router()
+
+
 
 // GET
 
@@ -27,7 +32,7 @@ router.get('/notifications/:player_id', Notifications)
 router.post('/notify', temp.single('image'), Notify)
 
 // POST /product/add
-router.post('/product/add', temp.single('image'), Product.add)
+router.post('/product/add', urlencodedParser, Product.add)
 
 
 

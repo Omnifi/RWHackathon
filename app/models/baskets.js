@@ -3,9 +3,11 @@ var mongoose = require('mongoose'),
 
 var Basket = new Schema({
     user_id: { type: String, default: "" },
-    product_ids: [String],
-    purchased_ids: [String],
-    redeemed_ids: [String]
+    products: [{
+        name: String,
+        nsfw: Boolean,
+        trend: Number
+    }]
 }, {
     timestamps: true
 });
