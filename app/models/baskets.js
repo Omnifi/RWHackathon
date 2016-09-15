@@ -6,7 +6,8 @@ var Basket = new Schema({
     products: [{
         name: String,
         nsfw: Boolean,
-        trend: Number
+        trend: Number,
+        product_id: String
     }]
 }, {
     timestamps: true

@@ -6,11 +6,17 @@ module.exports = function(req, res, next) {
 
     //beacon id tells the player id
 
-    Basket.findOne({user_id: req.body.user_id}).exec(function(err, basket) {
+    Basket.findOne({ user_id: req.body.user_id }).exec(function(err, basket) {
+
         if (err) return next(err)
+
+        var select = basket.products.sort(function(a, b) {
+            return (a.trend < b.trend)
+        });
+
         res.json({
             success: true,
-            basket: basket
+            product_id: select[0].product_id
         })
     })
 

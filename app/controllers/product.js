@@ -4,8 +4,9 @@ module.exports = {
 
     add: function(req, res, next) {
 
-        if (!req.body.user_id || !req.body.name || !req.body.nsfw || !req.body.trend) return next(new Error('Missing user id or product name, trend, nsfw'))
+        if (!req.body.user_id || !req.body.name || !req.body.nsfw || !req.body.trend || !req.body.product_id) return next(new Error('Missing user id or product name, trend, nsfw, product_id'))
 
+        console.log(req.body)
 
         Basket.findOne({ user_id: req.body.user_id }).exec(function(err, basket) {
             if (err) return next(err)
@@ -14,7 +15,8 @@ module.exports = {
                 basket.products.push({
                     name: req.body.name,
                     nsfw: req.body.nsfw,
-                    trend: req.body.trend
+                    trend: req.body.trend,
+                    product_id: req.body.product_id
                 });
 
                 basket.save(function(err) {
@@ -29,7 +31,8 @@ module.exports = {
                 basket.products.push({
                     name: req.body.name,
                     nsfw: req.body.nsfw,
-                    trend: req.body.trend
+                    trend: req.body.trend,
+                    product_id: req.body.product_id
                 });
 
                 basket.save(function(err, basket) {
