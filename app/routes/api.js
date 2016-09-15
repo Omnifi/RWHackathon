@@ -29,7 +29,7 @@ router.get('/notifications/:player_id', Notifications)
 // POST
 
 // POST /notify
-router.post('/notify', temp.single('image'), Notify)
+router.post('/notify', urlencodedParser, Notify)
 
 // POST /product/add
 router.post('/product/add', urlencodedParser, Product.add)
