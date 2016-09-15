@@ -6,7 +6,8 @@ var Location = new Schema({
     address: { type: String, default: 'Address' },
     geo: { type: [Number], index: '2dsphere' },
     beacon_id: { type: String, default: '000' },
-    player_id: { type: String, default: '000' }
+    player_id: { type: String, default: '000' },
+    product: Object
 }, {
     timestamps: true
 });
